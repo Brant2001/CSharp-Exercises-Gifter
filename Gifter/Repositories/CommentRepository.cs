@@ -42,7 +42,10 @@ namespace Gifter.Repositories
 
         public List<Comment> GetByPostId(int id)
         {
-            return _context.Comment.Include(c => c.Post)
+            return _context.Comment
+                            .Include(c => c.Post)
+                            .ThenInclude(p => p.UserProfile)
+                            .Include(c => c.UserProfile)
                             .Where(c => c.PostId == id)
                             .OrderBy(c => c.Message)
                             .ToList();
