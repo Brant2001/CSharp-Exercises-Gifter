@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardImg, CardBody } from "reactstrap";
 
-const Post = ({ post }) => {
+export const Post = ({ post }) => {
     return (
         <Card className="m-4">
             <p className="text-left px-2">Posted by: {post.userProfile.name}</p>
@@ -16,4 +16,3 @@ const Post = ({ post }) => {
     );
 };
 
-export default Post;

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { PostContext } from "./PostProvider";
-import Post from "./Post";
+import { Post } from "./Post";
 
 const PostList = () => {
     const { posts, getAllPosts } = useContext(PostContext);
