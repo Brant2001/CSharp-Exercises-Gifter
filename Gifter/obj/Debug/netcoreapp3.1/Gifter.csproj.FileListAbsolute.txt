@@ -149,3 +149,6 @@ C:\Users\brant\workspace\practice-exercises\third-book\Gifter\Gifter\obj\Debug\n
 C:\Users\brant\workspace\practice-exercises\third-book\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.dll
 C:\Users\brant\workspace\practice-exercises\third-book\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.pdb
 C:\Users\brant\workspace\practice-exercises\third-book\Gifter\Gifter\obj\Debug\netcoreapp3.1\Gifter.genruntimeconfig.cache
+C:\Users\brant\workspace\practice-exercises\third-book\Gifter\Gifter\bin\Debug\netcoreapp3.1\client\package-lock.json
+C:\Users\brant\workspace\practice-exercises\third-book\Gifter\Gifter\bin\Debug\netcoreapp3.1\client\package.json
+C:\Users\brant\workspace\practice-exercises\third-book\Gifter\Gifter\bin\Debug\netcoreapp3.1\client\public\manifest.json
