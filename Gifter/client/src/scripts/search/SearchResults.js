@@ -5,7 +5,6 @@ import { Post } from "../posts/Post";
 
 export const SearchResults = ({ searchTerms }) => {
     const { posts } = useContext(PostContext)
-
     const [filteredPosts, setFiltered] = useState([])
     const [selectedPost, setPost] = useState({
         post: {}
@@ -17,7 +16,7 @@ export const SearchResults = ({ searchTerms }) => {
 
     useEffect(() => {
         if (searchTerms !== "") {
-            const subset = posts.filter(post => post.name.toLowerCase().includes(searchTerms))
+            const subset = posts.filter(post => post.title.toLowerCase().includes(searchTerms))
             setFiltered(subset)
         } else {
             setFiltered([])
@@ -40,10 +39,10 @@ export const SearchResults = ({ searchTerms }) => {
             </div>
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>
-                    {selectedPost.post.name}
+                    {selectedPost.title}
                 </ModalHeader>
                 <ModalBody>
-                    <Post key={selectedPost.post.id} />
+                    <Post key={selectedPost.id} post={selectedPost} />
                 </ModalBody>
             </Modal>
         </div>

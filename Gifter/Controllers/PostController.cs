@@ -3,9 +3,11 @@ using Gifter.Data;
 using Gifter.Repositories;
 using Gifter.Models;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Gifter.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PostController : ControllerBase
@@ -42,6 +44,11 @@ namespace Gifter.Controllers
         [HttpGet("search")]
         public IActionResult Search(string q, bool sortDesc)
         {
+            if (String.IsNullOrEmpty(q))
+            {
+                return Ok(_postRepository.GetAll());
+            }
+
             return Ok(_postRepository.Search(q, sortDesc));
         }
         

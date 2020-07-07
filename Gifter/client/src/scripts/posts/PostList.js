@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { PostContext } from "./PostProvider";
 import { Post } from "./Post";
 
-const PostList = () => {
+export const PostList = () => {
     const { posts, getAllPosts } = useContext(PostContext);
 
     useEffect(() => {
@@ -22,4 +22,3 @@ const PostList = () => {
     );
 };
 
-export default PostList;

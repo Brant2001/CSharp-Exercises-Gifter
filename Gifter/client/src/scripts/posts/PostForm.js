@@ -1,9 +1,11 @@
 import React, { useContext, useRef } from "react"
 import { PostContext } from "./PostProvider"
+import { useHistory } from "react-router-dom";
 // import "./Post.css"
 
 export default props => {
     const { addPost } = useContext(PostContext)
+    const history = useHistory();
 
     const title = useRef("title")
     const image = useRef("image")
@@ -17,7 +19,7 @@ export default props => {
             userProfileId: parseInt(userId.current.value),
         }
         console.log(newPostObject)
-        addPost(newPostObject).then(props.toggler)
+        return addPost(newPostObject).then(props.toggler)
     }
 
     return (
@@ -69,7 +71,7 @@ export default props => {
                 onClick={
                     evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
-                        constructNewPost()
+                        constructNewPost().then((p) => history.push("/"));
                     }
                 }
                 className="btn btn-primary">
