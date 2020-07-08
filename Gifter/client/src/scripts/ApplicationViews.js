@@ -7,6 +7,7 @@ import { UserPosts } from "./users/UserPosts";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import { UserProfileContext } from "./users/UserProfileProvider";
+import { SearchBar } from "./search/SearchBar";
 
 export const ApplicationViews = () => {
     const { isLoggedIn } = useContext(UserProfileContext);
@@ -15,19 +16,42 @@ export const ApplicationViews = () => {
         <main>
             <Switch>
                 <Route path="/" exact>
-                    {isLoggedIn ? <PostList /> : <Redirect to="/login" />}
+                    {isLoggedIn ?
+                        <div>
+                            <SearchBar />
+                            <PostList />
+                        </div> :
+                        <Redirect to="/login" />
+                    }
                 </Route>
 
-                <Route path="/add">
-                    {isLoggedIn ? <PostForm /> : <Redirect to="/login" />}
+                <Route path="/posts/add">
+                    {isLoggedIn ?
+                        <div>
+                            <PostForm />
+                        </div> :
+                        <Redirect to="/login" />
+                    }
                 </Route>
 
-                <Route path="/add">
-                    {isLoggedIn ? <PostDetails /> : <Redirect to="/login" />}
+                <Route path='/posts/:id'>
+                    {isLoggedIn ?
+                        <div>
+                            <SearchBar />
+                            <PostDetails />
+                        </div> :
+                        <Redirect to="/login" />
+                    }
                 </Route>
 
-                <Route path="/add">
-                    {isLoggedIn ? <UserPosts /> : <Redirect to="/login" />}
+                <Route path="/users:id">
+                    {isLoggedIn ?
+                        <div>
+                            <SearchBar />
+                            <UserPosts />
+                        </div> :
+                        <Redirect to="/login" />
+                    }
                 </Route>
 
                 <Route path="/login">

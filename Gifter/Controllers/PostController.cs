@@ -35,11 +35,11 @@ namespace Gifter.Controllers
             return Ok(post);
         }
 
-        [HttpGet("getbyuser/{id}")]
-        public IActionResult GetByUser(int id)
-        {
-            return Ok(_postRepository.GetByUserProfileId(id));
-        }
+        //[HttpGet("getbyuser/{id}")]
+        //public IActionResult GetByUser(int id)
+        //{
+        //    return Ok(_postRepository.GetByUserProfileId(id));
+        //}
 
         [HttpGet("search")]
         public IActionResult Search(string q, bool sortDesc)

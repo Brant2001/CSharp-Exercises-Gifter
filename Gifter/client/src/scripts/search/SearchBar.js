@@ -1,22 +1,19 @@
-import React, { useRef } from "react"
+import React, { useContext } from "react"
+import { PostContext } from "../posts/PostProvider"
+import { Input } from "reactstrap"
 
-export const SearchBar = ({ setTerms }) => {
+export const SearchBar = () => {
+    const { searchPosts } = useContext(PostContext)
 
-    const { terms } = useRef()
+
+    const handleChange = (e) => {
+        searchPosts(e.target.value)
+    }
 
     return (
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="searchTerms">Search:</label>
-                <input onKeyUp={e => setTerms(e.target.value)}
-                    type="text"
-                    id="searchTerms"
-                    ref={terms}
-                    required
-                    autoFocus
-                    className="form-control"
-                />
-            </div>
-        </fieldset>
+        <div className='container mt-1'>
+            <Input type='text' onChange={handleChange} placeholder="Search Posts" />
+        </div>
     )
 }
+
